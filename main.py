@@ -23,17 +23,27 @@ async def heh(ctx, count_heh = 5):
 async def Toplama(ctx, sayi_1, sayi_2):
     await ctx.send(int(sayi_1) + int(sayi_2))
 
+@bot.command()
+async def carpma(ctx, sayi_1, sayi_2):
+    await ctx.send(int(sayi_1) * int(sayi_2))
+
+@bot.command()
+async def bolme(ctx, sayi_1, sayi_2):
+    await ctx.send(int(sayi_1) / int(sayi_2))
+
+@bot.command()
+async def cikarma(ctx, sayi_1, sayi_2):
+    await ctx.send(int(sayi_1) - int(sayi_2))
+
+@bot.command()
+async def Yardim(ctx):
+    await ctx.send("komutlar: /hello,/heh int,/Toplama int int,/cikarma int int,/carpma int int,/bolme int int,/joined @member")
+
 
 @bot.command()
 async def joined(ctx, member: discord.Member):
     """Says when a member joined."""
     await ctx.send(f'{member.name} joined {discord.utils.format_dt(member.joined_at)}')
-
-@bot.command(description='For when you wanna settle the score some other way')
-async def choose(ctx, *choices: str):
-    """Chooses between multiple choices."""
-    await ctx.send(random.choice(choices))
-
 
 
 bot.run("Token")
